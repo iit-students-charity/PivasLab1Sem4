@@ -33,7 +33,7 @@ public class LabForm {
     private JPanel controlGroup5;
     private JTable controlGroup5Table;
     private HashSet<String> itemsInControlGroup1ComboBox = new HashSet<>();
-    private boolean tableFlip=true;
+    private boolean tableFlip=false;
 
 
     private LabForm() {
@@ -135,18 +135,33 @@ public class LabForm {
             if(textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
             }
-            else
+            else if(!tableFlip)
             {
                 model.addRow(new Object[]{textFieldText,""});
             }
+            else if(tableFlip)
+            {
+                model.addRow(new Object[]{"", textFieldText});
+            }
         });
         controlGroup5SwapButton.addActionListener(e -> {
-            for(int index=0; index<model.getRowCount(); index++)
-            {
-                Object data=model.getValueAt(index,0);
-                model.setValueAt(data, index,1);
-                model.setValueAt("",index,0);
+            if(!tableFlip) {
+                for (int index = 0; index < model.getRowCount(); index++) {
+                    Object data = model.getValueAt(index, 0);
+                    model.setValueAt(data, index, 1);
+                    model.setValueAt("", index, 0);
+                }
+
             }
+            else if (tableFlip)
+            {
+                for (int index = 0; index < model.getRowCount(); index++) {
+                    Object data = model.getValueAt(index, 1);
+                    model.setValueAt(data, index, 0);
+                    model.setValueAt("", index, 1);
+                }
+            }
+            tableFlip=!tableFlip;
         });
     }
 
