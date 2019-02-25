@@ -113,15 +113,15 @@ public class LabForm {
                 switch (textFieldText.charAt(0))
                 {
                     case '1':
-                        check1=true;
+                        check1=!check1;
                         textFieldText = textFieldText.replaceAll("1","");
                         break;
                     case '2':
-                        check2=true;
+                        check2=!check2;
                         textFieldText = textFieldText.replaceAll("2","");
                         break;
                     case '3':
-                        check3=true;
+                        check3=!check3;
                         textFieldText = textFieldText.replaceAll("3","");
                         break;
                 }
