@@ -33,24 +33,19 @@ public class LabForm {
     private JPanel controlGroup5;
     private JTable controlGroup5Table;
     private HashSet<String> itemsInControlGroup1ComboBox = new HashSet<>();
-    private boolean tableFlip=false;
+    private boolean tableFlip = false;
 
 
     private LabForm() {
-        controlGroup5Table.setModel(new DefaultTableModel(0,2));
-        DefaultTableModel model=(DefaultTableModel) controlGroup5Table.getModel();
+        controlGroup5Table.setModel(new DefaultTableModel(0, 2));
+        DefaultTableModel model = (DefaultTableModel) controlGroup5Table.getModel();
         controlGroup1button.addActionListener(e -> {
-            String textFieldText=controlGroup1TextField.getText();
-            if(textFieldText.equals(""))
-            {
+            String textFieldText = controlGroup1TextField.getText();
+            if (textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
-            }
-            else if (itemsInControlGroup1ComboBox.contains(textFieldText))
-            {
+            } else if (itemsInControlGroup1ComboBox.contains(textFieldText)) {
                 JOptionPane.showMessageDialog(null, "This combobox already has that string");
-            }
-            else
-            {
+            } else {
                 controlGroup1ComboBox.addItem(textFieldText);
                 itemsInControlGroup1ComboBox.add(textFieldText);
                 controlGroup1TextField.setText("");
@@ -58,28 +53,25 @@ public class LabForm {
 
         });
         controlGroup2ButtonTextSet.addActionListener(e -> {
-            String textFieldText=controlGroup2TextField.getText();
-            if(textFieldText.equals("")) {
+            String textFieldText = controlGroup2TextField.getText();
+            if (textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
-            }
-            else
-            {
+            } else {
                 controlGroup2SwapButton.setText(textFieldText);
                 controlGroup1TextField.setText("");
             }
         });
         controlGroup2SwapButton.addActionListener(e -> {
-            String textFieldText=controlGroup2SwapButton.getText();
+            String textFieldText = controlGroup2SwapButton.getText();
             controlGroup2SwapButton.setText(controlGroup2ButtonTextSet.getText());
             controlGroup2ButtonTextSet.setText(textFieldText);
         });
         ControlGroup3Button.addActionListener(e -> {
-            String textFieldText=controlGroup3TextField.getText();
-            if(textFieldText.equals("")) {
+            String textFieldText = controlGroup3TextField.getText();
+            if (textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
             }
-            switch (textFieldText)
-            {
+            switch (textFieldText) {
                 case "1":
                     controlGroup3RB1.setSelected(true);
                     break;
@@ -89,40 +81,38 @@ public class LabForm {
                 case "3":
                     controlGroup3RB3.setSelected(true);
                     break;
-                    default: JOptionPane.showMessageDialog(null, "No such radiobutton.");
+                default:
+                    JOptionPane.showMessageDialog(null, "No such radiobutton.");
                     break;
             }
         });
         controlGroup4Button.addActionListener(e -> {
-            String textFieldText=controlGroup4TextField.getText();
-            if(textFieldText.equals("")) {
+            String textFieldText = controlGroup4TextField.getText();
+            if (textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
                 return;
             }
-            boolean check1=controlGroupCheck1.isSelected(), check2=controlGroupCheck2.isSelected(),
-                    check3=controlGroupCheck3.isSelected();
-            textFieldText = textFieldText.replaceAll("\\s","");
-            while (!textFieldText.equals(("")))
-            {
-                if(textFieldText.charAt(0)!='1' && textFieldText.charAt(0)!='2' &&
-                        textFieldText.charAt(0)!='3')
-                {
+            boolean check1 = controlGroupCheck1.isSelected(), check2 = controlGroupCheck2.isSelected(),
+                    check3 = controlGroupCheck3.isSelected();
+            textFieldText = textFieldText.replaceAll("\\s", "");
+            while (!textFieldText.equals((""))) {
+                if (textFieldText.charAt(0) != '1' && textFieldText.charAt(0) != '2' &&
+                        textFieldText.charAt(0) != '3') {
                     JOptionPane.showMessageDialog(null, "Incorrect input");
                     return;
                 }
-                switch (textFieldText.charAt(0))
-                {
+                switch (textFieldText.charAt(0)) {
                     case '1':
-                        check1=!check1;
-                        textFieldText = textFieldText.replaceAll("1","");
+                        check1 = !check1;
+                        textFieldText = textFieldText.replaceAll("1", "");
                         break;
                     case '2':
-                        check2=!check2;
-                        textFieldText = textFieldText.replaceAll("2","");
+                        check2 = !check2;
+                        textFieldText = textFieldText.replaceAll("2", "");
                         break;
                     case '3':
-                        check3=!check3;
-                        textFieldText = textFieldText.replaceAll("3","");
+                        check3 = !check3;
+                        textFieldText = textFieldText.replaceAll("3", "");
                         break;
                 }
                 controlGroupCheck1.setSelected(check1);
@@ -131,37 +121,31 @@ public class LabForm {
             }
         });
         controlGroup5SubmitButton.addActionListener(e -> {
-            String textFieldText=controlGroup5TextField.getText();
-            if(textFieldText.equals("")) {
+            String textFieldText = controlGroup5TextField.getText();
+            if (textFieldText.equals("")) {
                 JOptionPane.showMessageDialog(null, "Write something first.");
-            }
-            else if(!tableFlip)
-            {
-                model.addRow(new Object[]{textFieldText,""});
-            }
-            else if(tableFlip)
-            {
+            } else if (!tableFlip) {
+                model.addRow(new Object[]{textFieldText, ""});
+            } else if (tableFlip) {
                 model.addRow(new Object[]{"", textFieldText});
             }
         });
         controlGroup5SwapButton.addActionListener(e -> {
-            if(!tableFlip) {
+            if (!tableFlip) {
                 for (int index = 0; index < model.getRowCount(); index++) {
                     Object data = model.getValueAt(index, 0);
                     model.setValueAt(data, index, 1);
                     model.setValueAt("", index, 0);
                 }
 
-            }
-            else if (tableFlip)
-            {
+            } else if (tableFlip) {
                 for (int index = 0; index < model.getRowCount(); index++) {
                     Object data = model.getValueAt(index, 1);
                     model.setValueAt(data, index, 0);
                     model.setValueAt("", index, 1);
                 }
             }
-            tableFlip=!tableFlip;
+            tableFlip = !tableFlip;
         });
     }
 
