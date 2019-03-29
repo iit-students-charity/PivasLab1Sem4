@@ -64,7 +64,7 @@ public class MainFrame {
         pageButtons.add(nextPage);
         StudentsTable studentsTable = new StudentsTable();
         DefaultTableModel studentsTableModel = studentsTable.getTableModel();
-        JScrollPane scroll = new JScrollPane(studentsTable.createTableInstance());
+        JScrollPane scroll = new JScrollPane(studentsTable.createTableComponent());
         rootPanel.add(scroll);
         rootPanel.add(pageButtons, BorderLayout.SOUTH);
         rootPanel.validate();

@@ -9,6 +9,7 @@ public class StudentEntity {
     public String getFirstName() {
         return firstName;
     }
+    public String getName(){return "prank";}
 
     public String getGroup() {
         return group;

@@ -2,6 +2,7 @@ package lab2.view;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class StudentsTable {
     private DefaultTableModel dm;
@@ -10,7 +11,7 @@ public class StudentsTable {
         dm = new DefaultTableModel();
     }
 
-    JTable createTableInstance(){
+    public JPanel createTableComponent() {
         //DefaultTableModel dm = new DefaultTableModel();
         dm.setDataVector(new Object[][]{/*
                         {"119", "Finbar", "John", "Saunders", "ja", "ko", "zh"},
@@ -38,7 +39,22 @@ public class StudentsTable {
         socialActivity.add(cm.getColumn(10));
         socialActivity.add(cm.getColumn(11));
         cm.addColumnGroup(socialActivity);
-        return  table;
+        JButton dialogFirst = new JButton(("<<"));
+        JButton dialogPrev = new JButton("<");
+        JButton dialogNext = new JButton(">");
+        JButton dialogLast = new JButton(">>");
+        JLabel currentPage = new JLabel("");
+        JPanel buttons = new JPanel();
+        buttons.add(dialogFirst);
+        buttons.add(dialogPrev);
+        buttons.add(currentPage);
+        buttons.add(dialogNext);
+        buttons.add(dialogLast);
+        JScrollPane scrollPane=new JScrollPane(table);
+        JPanel tablePanel = new JPanel(new BorderLayout());
+        tablePanel.add(scrollPane, BorderLayout.CENTER);
+        tablePanel.add(buttons, BorderLayout.SOUTH);
+        return tablePanel;
     }
 
     public DefaultTableModel getTableModel() {
