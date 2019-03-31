@@ -3,25 +3,30 @@ package lab2.controller;
 import lab2.model.EntryModel;
 import lab2.model.StudentEntity;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class Controller {
-    private EntryModel mainStudentModel;
+    private EntryModel modelToControl;
 
-    public void addEntry(String[] entryData) {
-        int HOURSAMOUNT = 10;
-        final int INDEXOFNAME=0;
-        int INDEXOFGROUP=1;
-        int[] hours = new int[HOURSAMOUNT];
-        for (int i = 2; i < entryData.length - 2; i++) {
-            hours[i - 2] = Integer.parseInt(entryData[i]);
+    public void addEntry(ArrayList<String> name, String group, ArrayList<Integer> workData){
+        modelToControl.addStudent(name, group, workData);
+    }
+
+    public Vector<Vector<Object>> representData(){
+        ArrayList<StudentEntity> data = modelToControl.getStudents();
+        Vector<Vector<Object>> representedData = new Vector<>();
+        for(StudentEntity entity : data){
+            Vector<Object> record = new Vector<>();
+            record.add(entity.getName());
+            record.add(entity.getGroup());
+            record.addAll(entity.getStringHoursData());
+            representedData.add(record);
         }
-        String name = entryData[INDEXOFNAME];
-        String group=entryData[INDEXOFGROUP];
-        mainStudentModel.addStudent(name, group, hours);
+        return representedData;
     }
 
     public Controller() {
-        this.mainStudentModel = new EntryModel(new Vector<StudentEntity>(), 0);
+        this.modelToControl = new EntryModel();
     }
 }

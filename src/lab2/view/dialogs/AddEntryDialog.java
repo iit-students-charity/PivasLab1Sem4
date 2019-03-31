@@ -1,17 +1,26 @@
 package lab2.view.dialogs;
 
+import lab2.controller.Controller;
+import lab2.view.StudentsTable;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AddEntryDialog {
     JFrame ownerFrame;
-    public JDialog buildDialog(){
+    StudentsTable ownerTable;
+    Controller ownerController;
+
+    public JDialog buildDialog() {
         JDialog dialog = new JDialog(ownerFrame, "Add new entry", true);
-        dialog.setSize(new Dimension(600, 600));
         JPanel rootDialogPanel = new JPanel(new BorderLayout());
         dialog.add(rootDialogPanel);
-        JPanel textFieldsPanel = new JPanel(new GridLayout(12, 3, 10, 20));
-        JTextField nameField = new JTextField();
+        JPanel textFieldsPanel = new JPanel(new GridLayout(14, 2, 10, 20));
+        JTextField firstNameField = new JTextField();
+        JTextField secondNameField = new JTextField();
+        JTextField fatherNameField = new JTextField();
         JTextField group = new JTextField();
         JTextField sem1 = new JTextField();
         JTextField sem2 = new JTextField();
@@ -23,7 +32,9 @@ public class AddEntryDialog {
         JTextField sem8 = new JTextField();
         JTextField sem9 = new JTextField();
         JTextField sem10 = new JTextField();
-        JLabel nameCaption = new JLabel("Name:");
+        JLabel firstNameCaption = new JLabel("Имя:");
+        JLabel secondNameCaption = new JLabel("Фамилия:");
+        JLabel fatherNameCaption = new JLabel("Отчество:");
         JLabel groupCaption = new JLabel("Group:");
         JLabel sem1Caption = new JLabel("Semester 1:");
         JLabel sem2Caption = new JLabel("Semester 2:");
@@ -37,10 +48,30 @@ public class AddEntryDialog {
         JLabel sem10Caption = new JLabel("Semester 10:");
         JButton submitButton = new JButton("Submit Entry");
         submitButton.addActionListener(e -> {
-
+            ArrayList<String> name = new ArrayList<>(Arrays.asList(firstNameField.getText(),
+                    secondNameField.getText(),
+                    fatherNameField.getText()));
+            ArrayList<Integer> work = new ArrayList<>(Arrays.asList(
+                    Integer.parseInt(sem1.getText()),
+                    Integer.parseInt(sem2.getText()),
+                    Integer.parseInt(sem3.getText()),
+                    Integer.parseInt(sem4.getText()),
+                    Integer.parseInt(sem5.getText()),
+                    Integer.parseInt(sem6.getText()),
+                    Integer.parseInt(sem7.getText()),
+                    Integer.parseInt(sem8.getText()),
+                    Integer.parseInt(sem9.getText()),
+                    Integer.parseInt(sem10.getText())
+            ));
+            ownerController.addEntry(name, group.getText(), work);
+            ownerTable.updateTableModel(ownerController.representData());
         });
-        textFieldsPanel.add(nameCaption);
-        textFieldsPanel.add(nameField);
+        textFieldsPanel.add(firstNameCaption);
+        textFieldsPanel.add(firstNameField);
+        textFieldsPanel.add(secondNameCaption);
+        textFieldsPanel.add(secondNameField);
+        textFieldsPanel.add(fatherNameCaption);
+        textFieldsPanel.add(fatherNameField);
         textFieldsPanel.add(groupCaption);
         textFieldsPanel.add(group);
         textFieldsPanel.add(sem1Caption);
@@ -69,8 +100,10 @@ public class AddEntryDialog {
         return dialog;
     }
 
-    public AddEntryDialog(JFrame owner) {
-        ownerFrame=owner;
+    public AddEntryDialog(JFrame owner, StudentsTable table, Controller controller) {
+        ownerFrame = owner;
+        ownerTable = table;
+        ownerController = controller;
     }
 }
 

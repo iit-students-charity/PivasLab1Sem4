@@ -1,37 +1,40 @@
 package lab2.model;
 
+import java.util.ArrayList;
+
 public class StudentEntity {
-    private String firstName;
-    private String secondName;
-    private String fatherName;
+    private StudentFullName name;
     private String group;
-    private int[] socialWork;
-    public String getFirstName() {
-        return firstName;
+    private SocialWork socialWork;
+
+    public String getName() {
+        return name.getFullName();
     }
-    public String getName(){return "prank";}
 
     public String getGroup() {
         return group;
     }
 
-    public int[] getSocialWork() {
-        return socialWork;
+    public ArrayList<Integer> getHoursData() {
+        return socialWork.getWork();
     }
-    StudentEntity(String name, String group, int[] hours)
-    {
-        this.firstName=name;
-        this.group=group;
-        this.socialWork=hours;
-    }
-    public int calculateHours(){
-        int sum=0;
-        for (int i1 : socialWork) {
-            sum += i1;
+
+    public ArrayList <String> getStringHoursData(){
+        ArrayList<String> data=new ArrayList<>();
+        for(Integer dataPiece : socialWork.getWork()){
+            data.add(dataPiece.toString());
         }
-        return sum;
+        return data;
     }
-    public String assembleFullName(){
-        return secondName+firstName+fatherName;
+
+    public Integer getHoursSum() {
+        return socialWork.calculateWorkHours();
+    }
+
+    StudentEntity(ArrayList<String> fullName, String group, ArrayList<Integer> hours) {
+
+        this.name = new StudentFullName(fullName.get(0), fullName.get(1), fullName.get(2));
+        this.group = group;
+        this.socialWork = new SocialWork(hours);
     }
 }

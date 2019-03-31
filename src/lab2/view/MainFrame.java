@@ -1,5 +1,7 @@
 package lab2.view;
 
+import lab2.controller.Controller;
+import lab2.model.EntryModel;
 import lab2.view.dialogs.*;
 
 import javax.swing.*;
@@ -11,13 +13,21 @@ import java.awt.*;
 public class MainFrame {
     private JFrame frame = new JFrame();
     private DefaultTableModel mainTableModel;
+    private Controller controller;
+    private StudentsTable studentsTable;
+
+    public MainFrame() {
+        this.controller = new Controller();
+        this.studentsTable = new StudentsTable();
+    }
+
     JFrame buildFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Lab 2");
         frame.setSize(new Dimension(800, 800));
         JMenuBar menuBar = new JMenuBar();
         JMenuItem addEntry = new JMenuItem("Add new entry");
-        addEntry.addActionListener(ev -> new AddEntryDialog(frame).buildDialog().setVisible(true));
+        addEntry.addActionListener(ev -> new AddEntryDialog(frame, studentsTable, controller).buildDialog().setVisible(true));
         JMenu searchEntries = new JMenu("Search for entries");
         JMenuItem searchByNameGroup = new JMenuItem("Search for entries by name and Group");
         searchByNameGroup.addActionListener(ev -> new EntryNameGroupSearchDialog().buildDialog().setVisible(true));
@@ -54,19 +64,8 @@ public class MainFrame {
         mainTableModel = (DefaultTableModel) pagesTable.getModel();
         JPanel rootPanel = new JPanel();
         rootPanel.setLayout(new BorderLayout());
-        //rootPanel.add(pagesTable, BorderLayout.CENTER);
-        JButton previousPage = new JButton("<<");
-        JLabel currentPage = new JLabel("Page 1");
-        JButton nextPage = new JButton(">>");
-        JPanel pageButtons = new JPanel(new FlowLayout());
-        pageButtons.add(previousPage);
-        pageButtons.add(currentPage);
-        pageButtons.add(nextPage);
-        StudentsTable studentsTable = new StudentsTable();
         DefaultTableModel studentsTableModel = studentsTable.getTableModel();
-        JScrollPane scroll = new JScrollPane(studentsTable.createTableComponent());
-        rootPanel.add(scroll);
-        rootPanel.add(pageButtons, BorderLayout.SOUTH);
+        rootPanel.add(studentsTable.createTableComponent(), BorderLayout.CENTER);
         rootPanel.validate();
         frame.add(rootPanel);
         return frame;

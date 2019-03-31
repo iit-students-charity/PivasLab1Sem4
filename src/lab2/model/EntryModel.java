@@ -1,27 +1,29 @@
 package lab2.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Vector;
 
 public class EntryModel {
-    private Vector<StudentEntity> students;
+    private ArrayList<StudentEntity> students;
     private int pageCount;
+    private int entriesPerPage;
 
     public void calculatePageCount() {
         int studentsCount = students.size();
-        if (studentsCount % 10 == 0) {
-            pageCount = studentsCount / 10;
+        if (studentsCount % entriesPerPage == 0) {
+            pageCount = studentsCount / entriesPerPage;
         } else {
-            pageCount = studentsCount / 10 + 1;
+            pageCount = studentsCount / entriesPerPage + 1;
         }
     }
 
-    public void addStudent(String name, String group, int[] hours) {
+    public void addStudent(ArrayList<String> name, String group, ArrayList<Integer> hours) {
         StudentEntity studentEntity = new StudentEntity(name, group, hours);
         students.add(studentEntity);
     }
 
-    public Vector<StudentEntity> getStudents() {
+    public ArrayList<StudentEntity> getStudents() {
         return students;
     }
 
@@ -29,9 +31,10 @@ public class EntryModel {
         return pageCount;
     }
 
-    public EntryModel(Collection<StudentEntity> students, int pageCount) {
-        this.students = new Vector<>(students);
-        this.pageCount = pageCount;
+    public EntryModel() {
+        this.students = new ArrayList<>();
+        this.pageCount = 0;
+        this.entriesPerPage=10;
     }
 
     public Vector<StudentEntity> deleteByNameGroup(String name, String group) {
@@ -50,7 +53,7 @@ public class EntryModel {
         Vector<StudentEntity> result = new Vector<StudentEntity>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
-            int studentWorkHours = studentToCompare.calculateHours();
+            int studentWorkHours = studentToCompare.getHoursSum();
             if (studentToCompare.getName().equals(name) && studentWorkHours > lower && studentWorkHours < higher) {
                 result.add(studentToCompare);
                 students.remove(i);
@@ -63,7 +66,7 @@ public class EntryModel {
         Vector<StudentEntity> result = new Vector<StudentEntity>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
-            int studentWorkHours = studentToCompare.calculateHours();
+            int studentWorkHours = studentToCompare.getHoursSum();
             if (studentToCompare.getGroup().equals(group) && studentWorkHours > lower && studentWorkHours < higher) {
                 result.add(studentToCompare);
                 students.remove(i);
@@ -87,7 +90,7 @@ public class EntryModel {
         Vector<StudentEntity> result = new Vector<StudentEntity>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
-            int studentWorkHours = studentToCompare.calculateHours();
+            int studentWorkHours = studentToCompare.getHoursSum();
             if (studentToCompare.getName().equals(name) && studentWorkHours > lower && studentWorkHours < higher) {
                 result.add(studentToCompare);
             }
@@ -99,7 +102,7 @@ public class EntryModel {
         Vector<StudentEntity> result = new Vector<StudentEntity>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
-            int studentWorkHours = studentToCompare.calculateHours();
+            int studentWorkHours = studentToCompare.getHoursSum();
             if (studentToCompare.getGroup().equals(group) && studentWorkHours > lower && studentWorkHours < higher) {
                 result.add(studentToCompare);
             }
@@ -108,17 +111,17 @@ public class EntryModel {
     }
 
     public Object[] getCurrentData() {
-        int HOURSAMOUNT = 10;
-        final int INDEXOFNAME = 0;
-        int INDEXOFGROUP = 1;
+        int HOURS_AMOUNT = 10;
+        final int INDEX_OF_NAME = 0;
+        int INDEX_OF_GROUP = 1;
         int dataSize = students.size();
         Object[][] data = new Object[dataSize][12];
         for (int i = 0; i < dataSize; i++) {
             StudentEntity currentStudent = students.get(i);
-            data[i][INDEXOFNAME] = currentStudent.getName();
-            data[i][INDEXOFGROUP] = currentStudent.getGroup();
-            for (int j = 0; j < HOURSAMOUNT; j++) {
-                data[i][j+2]=currentStudent.getSocialWork()[j];
+            data[i][INDEX_OF_NAME] = currentStudent.getName();
+            data[i][INDEX_OF_GROUP] = currentStudent.getGroup();
+            for (int j = 0; j < HOURS_AMOUNT; j++) {
+                data[i][j+2]=currentStudent.getHoursData().get(j);
             }
         }
         return data;
