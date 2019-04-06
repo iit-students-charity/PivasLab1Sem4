@@ -1,4 +1,4 @@
-package lab2.view;
+package lab2.view.customtable;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -6,7 +6,7 @@ public class StudentFullName {
     private String fatherName;
 
     public String getFullName(){
-        return secondName+firstName+fatherName;
+        return secondName+" "+firstName+" "+fatherName;
     }
 
     public StudentFullName(String firstName, String secondName, String fatherName) {

@@ -1,9 +1,6 @@
-package lab2.view;
+package lab2.view.customtable;
 import java.util.Iterator;
-import java.util.Vector;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 
 
 /**

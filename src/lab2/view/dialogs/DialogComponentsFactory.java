@@ -1,7 +1,11 @@
 package lab2.view.dialogs;
 
+import lab2.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DialogComponentsFactory {
     public JTextField nameField;
@@ -9,8 +13,13 @@ public class DialogComponentsFactory {
     public JTextField workHigherField;
     public JComboBox group;
     public JPanel panelOfChoice;
+    Controller dialogController;
 
-    public void nameWorkAssemble() {
+    public DialogComponentsFactory(Controller dialogController) {
+        this.dialogController = new Controller(dialogController);
+    }
+
+    void nameWorkAssemble() {
         nameField = new JTextField();
         workLowerField = new JTextField();
         workHigherField = new JTextField();
@@ -27,9 +36,10 @@ public class DialogComponentsFactory {
         panelOfChoice= parametersPanel;
     }
 
-    public void nameGroupAssemble() {
+    void nameGroupAssemble() {
         nameField = new JTextField();
         group = new JComboBox();
+        fillGroups();
         JLabel groupCaption = new JLabel("Group:");
         JLabel nameCaption = new JLabel("Name:");
         JPanel parametersPanel = new JPanel(new GridLayout(3, 2, 10, 20));
@@ -40,8 +50,9 @@ public class DialogComponentsFactory {
         panelOfChoice= parametersPanel;
     }
 
-    public void groupWorkAssemble() {
+    void groupWorkAssemble() {
         group = new JComboBox();
+        fillGroups();
         workLowerField = new JTextField();
         workHigherField = new JTextField();
         JLabel nameCaption = new JLabel("Group:");
@@ -55,5 +66,12 @@ public class DialogComponentsFactory {
         parametersPanel.add(higherWorkCaption);
         parametersPanel.add(workHigherField);
         panelOfChoice= parametersPanel;
+    }
+
+    void fillGroups(){
+        List<String> groups = dialogController.sendGroups();
+        for(String group : groups){
+            this.group.addItem(group);
+        }
     }
 }

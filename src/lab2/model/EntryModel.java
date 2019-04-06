@@ -1,13 +1,12 @@
 package lab2.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Vector;
+import java.util.*;
 
 public class EntryModel {
     private ArrayList<StudentEntity> students;
     private int pageCount;
     private int entriesPerPage;
+    private Set<String> groups;
 
     public void calculatePageCount() {
         int studentsCount = students.size();
@@ -18,9 +17,26 @@ public class EntryModel {
         }
     }
 
+    public void setStudents(ArrayList<StudentEntity> students) {
+        this.students = students;
+    }
+
     public void addStudent(ArrayList<String> name, String group, ArrayList<Integer> hours) {
         StudentEntity studentEntity = new StudentEntity(name, group, hours);
         students.add(studentEntity);
+        groups.add(studentEntity.getGroup());
+    }
+
+    public ArrayList<String> getGroupsList(){
+        return new ArrayList<>(groups);
+    }
+
+    public void setGroups(Set<String> groups) {
+        this.groups = groups;
+    }
+
+    public Set<String> getGroups() {
+        return groups;
     }
 
     public ArrayList<StudentEntity> getStudents() {
@@ -35,6 +51,7 @@ public class EntryModel {
         this.students = new ArrayList<>();
         this.pageCount = 0;
         this.entriesPerPage=10;
+        this.groups = new TreeSet<>();
     }
 
     public Vector<StudentEntity> deleteByNameGroup(String name, String group) {

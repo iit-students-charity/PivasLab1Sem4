@@ -1,13 +1,15 @@
 package lab2.view.dialogs;
 
+import lab2.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class EntryNameWorkDeleteDialog {
     private  DialogComponentsFactory core;
 
-    public EntryNameWorkDeleteDialog() {
-        this.core = new DialogComponentsFactory();
+    public EntryNameWorkDeleteDialog(Controller ownerController) {
+        this.core = new DialogComponentsFactory(ownerController);
         core.nameWorkAssemble();
     }
 

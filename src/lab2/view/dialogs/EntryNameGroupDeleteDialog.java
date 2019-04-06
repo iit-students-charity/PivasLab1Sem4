@@ -1,5 +1,6 @@
 package lab2.view.dialogs;
 
+import lab2.controller.Controller;
 import lab2.view.StudentsTable;
 
 import javax.swing.*;
@@ -8,8 +9,8 @@ import java.awt.*;
 public class EntryNameGroupDeleteDialog {
     private  DialogComponentsFactory core;
 
-    public EntryNameGroupDeleteDialog() {
-        this.core = new DialogComponentsFactory();
+    public EntryNameGroupDeleteDialog(Controller ownerController) {
+        this.core = new DialogComponentsFactory(ownerController);
         core.nameGroupAssemble();
     }
     public JDialog buildDialog() {

@@ -19,12 +19,19 @@ public class AddEntryDialog {
         dialog.add(rootDialogPanel);
         JPanel textFieldsPanel = new JPanel(new GridLayout(14, 2, 10, 20));
         JTextField firstNameField = new JTextField();
+        firstNameField.setText("Name");
         JTextField secondNameField = new JTextField();
+        secondNameField.setText("secondName");
         JTextField fatherNameField = new JTextField();
+        fatherNameField.setText("fatherName");
         JTextField group = new JTextField();
+        group.setText("721701");
         JTextField sem1 = new JTextField();
+        sem1.setText("1");
         JTextField sem2 = new JTextField();
+        sem2.setText("2");
         JTextField sem3 = new JTextField();
+        sem3.setText("3");
         JTextField sem4 = new JTextField();
         JTextField sem5 = new JTextField();
         JTextField sem6 = new JTextField();
@@ -32,6 +39,13 @@ public class AddEntryDialog {
         JTextField sem8 = new JTextField();
         JTextField sem9 = new JTextField();
         JTextField sem10 = new JTextField();
+        sem4.setText("4");
+        sem5.setText("5");
+        sem6.setText("6");
+        sem7.setText("7");
+        sem8.setText("8");
+        sem9.setText("9");
+        sem10.setText("10");
         JLabel firstNameCaption = new JLabel("Имя:");
         JLabel secondNameCaption = new JLabel("Фамилия:");
         JLabel fatherNameCaption = new JLabel("Отчество:");
@@ -64,7 +78,7 @@ public class AddEntryDialog {
                     Integer.parseInt(sem10.getText())
             ));
             ownerController.addEntry(name, group.getText(), work);
-            ownerTable.updateTableModel(ownerController.representData());
+            ownerTable.setTableData(ownerController.representData());
         });
         textFieldsPanel.add(firstNameCaption);
         textFieldsPanel.add(firstNameField);

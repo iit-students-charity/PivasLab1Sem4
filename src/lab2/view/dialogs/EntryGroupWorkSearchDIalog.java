@@ -1,20 +1,17 @@
 package lab2.view.dialogs;
 
-import lab2.view.ColumnGroup;
-import lab2.view.GroupableTableColumnModel;
-import lab2.view.GroupableTableHeader;
+import lab2.controller.Controller;
 import lab2.view.StudentsTable;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class EntryGroupWorkSearchDIalog {
     private  DialogComponentsFactory core;
     private StudentsTable studentsTable;
 
-    public EntryGroupWorkSearchDIalog() {
-        this.core = new DialogComponentsFactory();
+    public EntryGroupWorkSearchDIalog(Controller ownerController) {
+        this.core = new DialogComponentsFactory(ownerController);
         core.groupWorkAssemble();
         studentsTable = new StudentsTable();
     }
