@@ -3,7 +3,7 @@ package lab2.model;
 import java.util.*;
 
 public class EntryModel {
-    private ArrayList<StudentEntity> students;
+    private List<StudentEntity> students;
     private int pageCount;
     private int entriesPerPage;
     private Set<String> groups;
@@ -17,7 +17,7 @@ public class EntryModel {
         }
     }
 
-    public void setStudents(ArrayList<StudentEntity> students) {
+    public void setStudents(List<StudentEntity> students) {
         this.students = students;
     }
 
@@ -27,7 +27,7 @@ public class EntryModel {
         groups.add(studentEntity.getGroup());
     }
 
-    public ArrayList<String> getGroupsList(){
+    public List<String> getGroupsList(){
         return new ArrayList<>(groups);
     }
 
@@ -39,7 +39,7 @@ public class EntryModel {
         return groups;
     }
 
-    public ArrayList<StudentEntity> getStudents() {
+    public List<StudentEntity> getStudents() {
         return students;
     }
 

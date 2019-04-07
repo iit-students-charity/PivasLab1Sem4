@@ -1,6 +1,7 @@
 package lab2.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentEntity {
     private StudentFullName name;
@@ -15,11 +16,11 @@ public class StudentEntity {
         return group;
     }
 
-    public ArrayList<Integer> getHoursData() {
+    public List<Integer> getHoursData() {
         return socialWork.getWork();
     }
 
-    public ArrayList <String> getStringHoursData(){
+    public List<String> getStringHoursData(){
         ArrayList<String> data=new ArrayList<>();
         for(Integer dataPiece : socialWork.getWork()){
             data.add(dataPiece.toString());
@@ -36,5 +37,9 @@ public class StudentEntity {
         this.name = new StudentFullName(fullName.get(0), fullName.get(1), fullName.get(2));
         this.group = group;
         this.socialWork = new SocialWork(hours);
+    }
+
+    public List<String> getNameParts(){
+        return name.getNameParts();
     }
 }

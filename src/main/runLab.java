@@ -1,4 +1,4 @@
-package lab2.view;
+package main;
 
 import lab2.view.MainFrame;
 

@@ -21,6 +21,12 @@ public class EntryNameWorkSearchDialog {
         dialog.setModal(true);
         dialog.setTitle("Search entries by name and work hours");
         JButton dialogSearch = new JButton("Search");
+        dialogSearch.addActionListener(ev -> {
+            core.dialogController.searchNameWork(core.nameField.getText(),
+                    Integer.parseInt(core.workLowerField.getText()),
+                    Integer.parseInt(core.workHigherField.getText()));
+            table.setTableData(core.dialogController.representData());
+        });
         JPanel rootDialogPanel = new JPanel(new BorderLayout());
         rootDialogPanel.add(core.panelOfChoice, BorderLayout.NORTH);
         rootDialogPanel.add(table.createTableComponent(), BorderLayout.CENTER);

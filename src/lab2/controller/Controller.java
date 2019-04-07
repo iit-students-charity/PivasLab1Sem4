@@ -15,7 +15,7 @@ public class Controller {
     }
 
     public Vector<Vector<Object>> representData() {
-        ArrayList<StudentEntity> data = modelToControl.getStudents();
+        List<StudentEntity> data = modelToControl.getStudents();
         Vector<Vector<Object>> representedData = new Vector<>();
         for (StudentEntity entity : data) {
             Vector<Object> record = new Vector<>();
@@ -39,5 +39,17 @@ public class Controller {
         this.modelToControl = new EntryModel();
         this.modelToControl.setStudents(copy.modelToControl.getStudents());
         this.modelToControl.setGroups(copy.modelToControl.getGroups());
+    }
+    public void saveData(String path){
+        XMLSaveComponent saver = new XMLSaveComponent(path, modelToControl.getStudents());
+        saver.writeToFile();
+    }
+
+    public void loadData(String path){
+        this.modelToControl = new XMLLoadComponent(path).loadFromFile();
+    }
+
+    public void searchNameWork(String name, int lower, int higher){
+        this.modelToControl.setStudents(modelToControl.searchByNameWork(name,lower,higher));
     }
 }

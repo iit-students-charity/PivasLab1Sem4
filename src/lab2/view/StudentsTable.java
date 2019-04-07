@@ -130,7 +130,7 @@ public class StudentsTable {
         return dm;
     }
 
-    private void updateTableModel() {
+    public void updateTableModel() {
         dm.setDataVector(dataNew.getRequestedPage(), header);
         updateColumnModel();
         currentPageLabel.setText(dataNew.getCurrentPage().toString());

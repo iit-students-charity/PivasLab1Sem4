@@ -5,9 +5,11 @@ import lab2.model.EntryModel;
 import lab2.view.dialogs.*;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 //import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.io.File;
 //import javax.swing.table.DefaultTableCellRenderer;
 
 public class MainFrame {
@@ -20,7 +22,7 @@ public class MainFrame {
         this.studentsTable = new StudentsTable();
     }
 
-    JFrame buildFrame() {
+    public JFrame buildFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Lab 2");
         frame.setSize(new Dimension(800, 800));
@@ -48,7 +50,30 @@ public class MainFrame {
         deleteEntries.add(deleteByNameWork);
         deleteEntries.add(deleteByGroupWork);
         JMenuItem saveToFile = new JMenuItem("Save to file");
+        saveToFile.addActionListener(ev -> {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
+            chooser.setFileFilter(filter);
+            int chooserVal;
+            chooserVal = chooser.showSaveDialog(frame);
+            if (chooserVal == JFileChooser.APPROVE_OPTION) {
+                File file = chooser.getSelectedFile();
+                controller.saveData(file.getPath());
+            }
+        });
         JMenuItem loadFromFile = new JMenuItem("Load from file");
+        loadFromFile.addActionListener(ev -> {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
+            chooser.setFileFilter(filter);
+            int chooserVal;
+            chooserVal = chooser.showOpenDialog(frame);
+            if (chooserVal == JFileChooser.APPROVE_OPTION) {
+                File file = chooser.getSelectedFile();
+                controller.loadData(file.getPath());
+                studentsTable.setTableData(controller.representData());
+            }
+        });
         JMenu operationsMenu = new JMenu("Data manipulation");
         operationsMenu.add(searchEntries);
         operationsMenu.add(deleteEntries);
