@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f13b13ef-b317-40ce-beeb-bfe389465385" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLLoadComponent$XMLHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLLoadComponent$XMLHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLLoadComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLLoadComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLSaveComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/controller/XMLSaveComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/model/EntryModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/model/EntryModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/StudentsTable$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/StudentsTable$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/StudentsTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/StudentsTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/AddEntryDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/AddEntryDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/DialogComponentsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/DialogComponentsFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryGroupWorkDeleteDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryGroupWorkDeleteDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryGroupWorkSearchDIalog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryGroupWorkSearchDIalog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameGroupDeleteDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameGroupDeleteDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameGroupSearchDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameGroupSearchDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameWorkSearchDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Pivas1/lab2/view/dialogs/EntryNameWorkSearchDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/controller/XMLLoadComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/controller/XMLLoadComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/controller/XMLSaveComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/controller/XMLSaveComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/model/EntryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/model/EntryModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lab2/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/StudentsTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/StudentsTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/AddEntryDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/AddEntryDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/DialogComponentsFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/DialogComponentsFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkDeleteDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkDeleteDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkSearchDIalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkSearchDIalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupDeleteDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupDeleteDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupSearchDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupSearchDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkDeleteDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkDeleteDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkSearchDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkSearchDialog.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lab2/model/EntryModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
+            <state relative-caret-position="1020">
               <caret line="72" column="124" selection-start-line="72" selection-start-column="124" selection-end-line="72" selection-end-column="124" />
             </state>
           </provider>
@@ -66,10 +37,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lab2/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
+            <state relative-caret-position="1139">
               <caret line="78" column="72" selection-start-line="78" selection-start-column="72" selection-end-line="78" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1516#1517#0" expanded="true" />
                 <element signature="e#1595#1596#0" expanded="true" />
               </folding>
             </state>
@@ -79,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lab2/view/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+            <state relative-caret-position="948">
+              <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupDeleteDialog.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+              <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkDeleteDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="391">
               <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -139,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkDeleteDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="24" column="68" lean-forward="true" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
+            <state relative-caret-position="340">
+              <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -240,7 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -292,7 +264,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,7 +371,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3966443" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.40268457" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -865,6 +837,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lab2/model/EntryModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="72" column="124" selection-start-line="72" selection-start-column="124" selection-end-line="72" selection-end-column="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lab2/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="78" column="72" selection-start-line="78" selection-start-column="72" selection-end-line="78" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1516#1517#0" expanded="true" />
+            <element signature="e#1595#1596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupSearchDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -875,10 +866,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkDeleteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkSearchDIalog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkDeleteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="68" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -897,48 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryGroupWorkDeleteDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="24" column="68" lean-forward="true" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lab2/model/EntryModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="72" column="124" selection-start-line="72" selection-start-column="124" selection-end-line="72" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lab2/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="78" column="72" selection-start-line="78" selection-start-column="72" selection-end-line="78" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1595#1596#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameGroupDeleteDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lab2/view/dialogs/EntryNameWorkDeleteDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -947,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lab2/view/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+        <state relative-caret-position="948">
+          <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
