@@ -40,16 +40,43 @@ public class Controller {
         this.modelToControl.setStudents(copy.modelToControl.getStudents());
         this.modelToControl.setGroups(copy.modelToControl.getGroups());
     }
-    public void saveData(String path){
+
+    public void saveData(String path) {
         XMLSaveComponent saver = new XMLSaveComponent(path, modelToControl.getStudents());
         saver.writeToFile();
     }
 
-    public void loadData(String path){
+    public void loadData(String path) {
         this.modelToControl = new XMLLoadComponent(path).loadFromFile();
     }
 
-    public void searchNameWork(String name, int lower, int higher){
-        this.modelToControl.setStudents(modelToControl.searchByNameWork(name,lower,higher));
+    public void searchNameWork(List<String> name, int lower, int higher) {
+        this.modelToControl.setStudents(modelToControl.searchByNameWork(name, lower, higher));
+    }
+
+    public void searchGroupWork(String group, int lower, int higher) {
+        this.modelToControl.setStudents(modelToControl.searchByGroupWork(group, lower, higher));
+    }
+
+    public void searchNameGroup(List<String> name, String group) {
+        this.modelToControl.setStudents(modelToControl.searchByNameGroup(name, group));
+    }
+
+    public int deleteNameGroup(List<String> name, String group) {
+        int deletedEntriesCount = this.modelToControl.getStudents().size();
+        this.modelToControl.setStudents(modelToControl.deleteByNameGroup(name, group));
+        return deletedEntriesCount - this.modelToControl.getStudents().size();
+    }
+
+    public int deleteGroupWork(String group, int lower, int higher) {
+        int deletedEntriesCount = this.modelToControl.getStudents().size();
+        this.modelToControl.setStudents(modelToControl.deleteByGroupWork(group, lower, higher));
+        return deletedEntriesCount - this.modelToControl.getStudents().size();
+    }
+
+    public int deleteNameWork(List<String> name, int lower, int higher) {
+        int deletedEntriesCount = this.modelToControl.getStudents().size();
+        this.modelToControl.setStudents(modelToControl.deleteByNameWork(name, lower, higher));
+        return deletedEntriesCount - this.modelToControl.getStudents().size();
     }
 }

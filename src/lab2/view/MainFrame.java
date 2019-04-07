@@ -1,20 +1,16 @@
 package lab2.view;
 
 import lab2.controller.Controller;
-import lab2.model.EntryModel;
 import lab2.view.dialogs.*;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-//import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.io.File;
-//import javax.swing.table.DefaultTableCellRenderer;
-
 public class MainFrame {
     private JFrame frame = new JFrame();
-    private Controller controller;
+    Controller controller;
     private StudentsTable studentsTable;
 
     public MainFrame() {
@@ -31,17 +27,26 @@ public class MainFrame {
         addEntry.addActionListener(ev -> new AddEntryDialog(frame, studentsTable, controller).buildDialog().setVisible(true));
         JMenu searchEntries = new JMenu("Search for entries");
         JMenuItem searchByNameGroup = new JMenuItem("Search for entries by name and Group");
-        searchByNameGroup.addActionListener(ev -> new EntryNameGroupSearchDialog(controller).buildDialog().setVisible(true));
+        searchByNameGroup.addActionListener(ev -> new EntryNameGroupSearchDialog(new Controller(controller)).buildDialog().setVisible(true));
         JMenuItem searchByNameWork = new JMenuItem("Search for entries by name and social work hours");
-        searchByNameWork.addActionListener(ev -> new EntryNameWorkSearchDialog(controller).buildDialog().setVisible(true));
+        searchByNameWork.addActionListener(ev -> new EntryNameWorkSearchDialog(new Controller(controller)).buildDialog().setVisible(true));
         JMenuItem searchByGroupWork = new JMenuItem("Search for entries by group and social work hours");
-        searchByGroupWork.addActionListener(ev -> new EntryGroupWorkSearchDIalog(controller).buildDialog().setVisible(true));
+        searchByGroupWork.addActionListener(ev -> new EntryGroupWorkSearchDIalog(new Controller(controller)).buildDialog().setVisible(true));
         JMenuItem deleteByNameGroup = new JMenuItem("Delete entries by name and group");
-        deleteByNameGroup.addActionListener(ev -> new EntryNameGroupDeleteDialog(controller).buildDialog().setVisible(true));
+        deleteByNameGroup.addActionListener(ev -> {
+            new EntryNameGroupDeleteDialog(controller).buildDialog().setVisible(true);
+            studentsTable.setTableData(controller.representData());
+        });
         JMenuItem deleteByNameWork = new JMenuItem("Delete entries by name and work hours");
-        deleteByNameWork.addActionListener(ev -> new EntryNameWorkDeleteDialog(controller).buildDialog().setVisible(true));
+        deleteByNameWork.addActionListener(ev -> {
+            new EntryNameWorkDeleteDialog(controller).buildDialog().setVisible(true);
+            studentsTable.setTableData(controller.representData());
+        });
         JMenuItem deleteByGroupWork = new JMenuItem("Delete entries by group and work hours");
-        deleteByGroupWork.addActionListener(ev -> new EntryGroupWorkDeleteDialog(controller).buildDialog().setVisible(true));
+        deleteByGroupWork.addActionListener(ev -> {
+            new EntryGroupWorkDeleteDialog(controller).buildDialog().setVisible(true);
+            studentsTable.setTableData(controller.representData());
+        });
         searchEntries.add(searchByNameGroup);
         searchEntries.add(searchByNameWork);
         searchEntries.add(searchByGroupWork);

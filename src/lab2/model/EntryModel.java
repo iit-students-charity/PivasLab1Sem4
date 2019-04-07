@@ -27,7 +27,7 @@ public class EntryModel {
         groups.add(studentEntity.getGroup());
     }
 
-    public List<String> getGroupsList(){
+    public List<String> getGroupsList() {
         return new ArrayList<>(groups);
     }
 
@@ -50,65 +50,62 @@ public class EntryModel {
     public EntryModel() {
         this.students = new ArrayList<>();
         this.pageCount = 0;
-        this.entriesPerPage=10;
+        this.entriesPerPage = 10;
         this.groups = new TreeSet<>();
     }
 
-    public Vector<StudentEntity> deleteByNameGroup(String name, String group) {
-        Vector<StudentEntity> result = new Vector<>();
+    public List<StudentEntity> deleteByNameGroup(List<String> name, String group) {
+        List<StudentEntity> result = new Vector<>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
-            if (studentToCompare.getName().equals(name) && studentToCompare.getGroup().equals(group)) {
+            if (!studentToCompare.getNameParts().equals(name) && !studentToCompare.getGroup().equals(group)) {
                 result.add(studentToCompare);
-                students.remove(i);
             }
         }
         return result;
     }
 
-    public Vector<StudentEntity> deleteByNameWork(String name, int lower, int higher) {
-        Vector<StudentEntity> result = new Vector<StudentEntity>();
+    public List<StudentEntity> deleteByNameWork(List<String> name, int lower, int higher) {
+        Vector<StudentEntity> result = new Vector<>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
             int studentWorkHours = studentToCompare.getHoursSum();
-            if (studentToCompare.getName().equals(name) && studentWorkHours > lower && studentWorkHours < higher) {
+            if (!studentToCompare.getNameParts().equals(name) && !(studentWorkHours > lower) && !(studentWorkHours < higher)) {
                 result.add(studentToCompare);
-                students.remove(i);
             }
         }
         return result;
     }
 
     public Vector<StudentEntity> deleteByGroupWork(String group, int lower, int higher) {
-        Vector<StudentEntity> result = new Vector<StudentEntity>();
+        Vector<StudentEntity> result = new Vector<>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
             int studentWorkHours = studentToCompare.getHoursSum();
-            if (studentToCompare.getGroup().equals(group) && studentWorkHours > lower && studentWorkHours < higher) {
-                result.add(studentToCompare);
-                students.remove(i);
-            }
-        }
-        return result;
-    }
-
-    public Vector<StudentEntity> searchByNameGroup(String name, String group) {
-        Vector<StudentEntity> result = new Vector<StudentEntity>();
-        for (int i = 0; i < students.size(); i++) {
-            StudentEntity studentToCompare = students.get(i);
-            if (studentToCompare.getName().equals(name) && studentToCompare.getGroup().equals(group)) {
+            if (!studentToCompare.getGroup().equals(group) && !(studentWorkHours > lower) && !(studentWorkHours < higher)) {
                 result.add(studentToCompare);
             }
         }
         return result;
     }
 
-    public Vector<StudentEntity> searchByNameWork(String name, int lower, int higher) {
+    public List<StudentEntity> searchByNameGroup(List<String> name, String group) {
+        List<StudentEntity> result = new Vector<>();
+        for (int i = 0; i < students.size(); i++) {
+            StudentEntity studentToCompare = students.get(i);
+            if (studentToCompare.getNameParts().equals(name) && studentToCompare.getGroup().equals(group)) {
+                result.add(studentToCompare);
+            }
+        }
+        return result;
+    }
+
+    public Vector<StudentEntity> searchByNameWork(List<String> name, int lower, int higher) {
         Vector<StudentEntity> result = new Vector<StudentEntity>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
             int studentWorkHours = studentToCompare.getHoursSum();
-            if (studentToCompare.getName().equals(name) && studentWorkHours > lower && studentWorkHours < higher) {
+            if (studentToCompare.getNameParts().equals(name) && studentWorkHours > lower && studentWorkHours < higher) {
                 result.add(studentToCompare);
             }
         }
@@ -116,7 +113,7 @@ public class EntryModel {
     }
 
     public Vector<StudentEntity> searchByGroupWork(String group, int lower, int higher) {
-        Vector<StudentEntity> result = new Vector<StudentEntity>();
+        Vector<StudentEntity> result = new Vector<>();
         for (int i = 0; i < students.size(); i++) {
             StudentEntity studentToCompare = students.get(i);
             int studentWorkHours = studentToCompare.getHoursSum();
@@ -138,7 +135,7 @@ public class EntryModel {
             data[i][INDEX_OF_NAME] = currentStudent.getName();
             data[i][INDEX_OF_GROUP] = currentStudent.getGroup();
             for (int j = 0; j < HOURS_AMOUNT; j++) {
-                data[i][j+2]=currentStudent.getHoursData().get(j);
+                data[i][j + 2] = currentStudent.getHoursData().get(j);
             }
         }
         return data;

@@ -1,7 +1,8 @@
 package lab2.controller;
 
 import lab2.model.StudentEntity;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;

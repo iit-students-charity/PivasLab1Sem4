@@ -4,11 +4,12 @@ import lab2.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DialogComponentsFactory {
-    public JTextField nameField;
+    public JTextField firstNameField;
+    JTextField secondNameField;
+    JTextField fatherNameField;
     public JTextField workLowerField;
     public JTextField workHigherField;
     public JComboBox group;
@@ -16,19 +17,27 @@ public class DialogComponentsFactory {
     Controller dialogController;
 
     public DialogComponentsFactory(Controller dialogController) {
-        this.dialogController = new Controller(dialogController);
+        this.dialogController = dialogController;
     }
 
     void nameWorkAssemble() {
-        nameField = new JTextField();
+        firstNameField = new JTextField();
+        secondNameField = new JTextField();
+        fatherNameField = new JTextField();
         workLowerField = new JTextField();
         workHigherField = new JTextField();
-        JLabel nameCaption = new JLabel("Name:");
+        JLabel firstNameCaption = new JLabel("First Name:");
+        JLabel secondNameCaption = new JLabel("Second Name:");
+        JLabel fatherNameCaption = new JLabel("Father Name:");
         JLabel workLowerCaption = new JLabel("Lower limit:");
         JLabel workHigherCaption = new JLabel("Higher limit:");
-        JPanel parametersPanel = new JPanel(new GridLayout(3, 2, 10, 20));
-        parametersPanel.add(nameCaption);
-        parametersPanel.add(nameField);
+        JPanel parametersPanel = new JPanel(new GridLayout(5, 2, 10, 20));
+        parametersPanel.add(firstNameCaption);
+        parametersPanel.add(firstNameField);
+        parametersPanel.add(secondNameCaption);
+        parametersPanel.add(secondNameField);
+        parametersPanel.add(fatherNameCaption);
+        parametersPanel.add(fatherNameField);
         parametersPanel.add(workLowerCaption);
         parametersPanel.add(workLowerField);
         parametersPanel.add(workHigherCaption);
@@ -37,14 +46,22 @@ public class DialogComponentsFactory {
     }
 
     void nameGroupAssemble() {
-        nameField = new JTextField();
+        firstNameField = new JTextField();
+        secondNameField = new JTextField();
+        fatherNameField = new JTextField();
         group = new JComboBox();
         fillGroups();
         JLabel groupCaption = new JLabel("Group:");
-        JLabel nameCaption = new JLabel("Name:");
-        JPanel parametersPanel = new JPanel(new GridLayout(3, 2, 10, 20));
-        parametersPanel.add(nameCaption);
-        parametersPanel.add(nameField);
+        JLabel firstNameCaption = new JLabel("First Name:");
+        JLabel secondNameCaption = new JLabel("Second Name:");
+        JLabel fatherNameCaption = new JLabel("Father Name:");
+        JPanel parametersPanel = new JPanel(new GridLayout(5, 2, 10, 20));
+        parametersPanel.add(firstNameCaption);
+        parametersPanel.add(firstNameField);
+        parametersPanel.add(secondNameCaption);
+        parametersPanel.add(secondNameField);
+        parametersPanel.add(fatherNameCaption);
+        parametersPanel.add(fatherNameField);
         parametersPanel.add(groupCaption);
         parametersPanel.add(group);
         panelOfChoice= parametersPanel;
@@ -74,4 +91,5 @@ public class DialogComponentsFactory {
             this.group.addItem(group);
         }
     }
+
 }

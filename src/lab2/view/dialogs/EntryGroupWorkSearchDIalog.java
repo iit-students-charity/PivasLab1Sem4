@@ -5,6 +5,7 @@ import lab2.view.StudentsTable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class EntryGroupWorkSearchDIalog {
     private  DialogComponentsFactory core;
@@ -22,6 +23,12 @@ public class EntryGroupWorkSearchDIalog {
         dialog.setTitle("Search entries by group and work hours");
         JPanel rootDialogPanel = new JPanel(new BorderLayout());
         JButton dialogSearch = new JButton("Search");
+        dialogSearch.addActionListener(ev -> {
+            core.dialogController.searchGroupWork(core.group.getSelectedItem().toString(),
+                    Integer.parseInt(core.workLowerField.getText()),
+                    Integer.parseInt(core.workHigherField.getText()));
+            studentsTable.setTableData(core.dialogController.representData());
+        });
         rootDialogPanel.add(core.panelOfChoice, BorderLayout.NORTH);
         rootDialogPanel.add(studentsTable.createTableComponent(), BorderLayout.CENTER);
         rootDialogPanel.add(dialogSearch, BorderLayout.SOUTH);

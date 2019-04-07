@@ -5,6 +5,7 @@ import lab2.view.StudentsTable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class EntryNameWorkSearchDialog {
     private DialogComponentsFactory core;
@@ -22,7 +23,11 @@ public class EntryNameWorkSearchDialog {
         dialog.setTitle("Search entries by name and work hours");
         JButton dialogSearch = new JButton("Search");
         dialogSearch.addActionListener(ev -> {
-            core.dialogController.searchNameWork(core.nameField.getText(),
+            ArrayList<String> name = new ArrayList<>();
+            name.add(core.secondNameField.getText());
+            name.add(core.firstNameField.getText());
+            name.add(core.fatherNameField.getText());
+            core.dialogController.searchNameWork(name,
                     Integer.parseInt(core.workLowerField.getText()),
                     Integer.parseInt(core.workHigherField.getText()));
             table.setTableData(core.dialogController.representData());
