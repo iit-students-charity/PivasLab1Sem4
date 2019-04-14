@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class EntryGroupWorkDeleteDialog {
     private  DialogComponentsFactory core;
+    JDialog dialog;
 
     public EntryGroupWorkDeleteDialog(Controller ownerController) {
         this.core = new DialogComponentsFactory(ownerController);
@@ -15,7 +16,7 @@ public class EntryGroupWorkDeleteDialog {
     }
 
     public JDialog buildDialog() {
-        JDialog dialog = new JDialog();
+        dialog = new JDialog();
         dialog.setModal(true);
         dialog.setTitle("Delete entries by group and work hours");
         JPanel rootDialogPanel = new JPanel(new BorderLayout());
@@ -30,11 +31,15 @@ public class EntryGroupWorkDeleteDialog {
                 JOptionPane.showMessageDialog(null, "Deleted entries: " +
                         deletedEntriesCounter.toString());
             }
+            closeDialog();
         });
         rootDialogPanel.add(core.panelOfChoice, BorderLayout.NORTH);
         rootDialogPanel.add(dialogDelete, BorderLayout.SOUTH);
         dialog.add(rootDialogPanel);
         dialog.pack();
         return dialog;
+    }
+    private void closeDialog(){
+        dialog.dispose();
     }
 }

@@ -28,7 +28,10 @@ public class MainFrame {
         frame.setSize(new Dimension(800, 800));
         JMenuBar menuBar = new JMenuBar();
         JMenuItem addEntry = new JMenuItem("Add new entry");
-        addEntry.addActionListener(ev -> new AddEntryDialog(frame, studentsTable, controller).buildDialog().setVisible(true));
+        addEntry.addActionListener(ev -> {
+            new AddEntryDialog(frame, studentsTable, controller).buildDialog().setVisible(true);
+            studentsTable.setTableData(controller.representData());
+        });
         JMenu searchEntries = new JMenu("Search for entries");
         JMenuItem searchByNameGroup = new JMenuItem("Search for entries by name and Group");
         searchByNameGroup.addActionListener(new searchNameGroupListener());
@@ -138,7 +141,7 @@ public class MainFrame {
     }
     private class fileSaveListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            JFileChooser chooser = new JFileChooser();
+            JFileChooser chooser = new JFileChooser("D:\\ppvis lab 2 test");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
             chooser.setFileFilter(filter);
             int chooserVal;
@@ -151,7 +154,7 @@ public class MainFrame {
     }
     private class fileLoadListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            JFileChooser chooser = new JFileChooser();
+            JFileChooser chooser = new JFileChooser("D:\\ppvis lab 2 test");
             FileNameExtensionFilter filter = new FileNameExtensionFilter("XML files", "xml");
             chooser.setFileFilter(filter);
             int chooserVal;

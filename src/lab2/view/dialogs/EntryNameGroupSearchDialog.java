@@ -10,9 +10,11 @@ import java.util.ArrayList;
 public class EntryNameGroupSearchDialog {
     private DialogComponentsFactory core;
     private StudentsTable table;
+    private Controller mainFrameController;
 
     public EntryNameGroupSearchDialog(Controller ownerController) {
         core = new DialogComponentsFactory(ownerController);
+        mainFrameController=ownerController;
         core.nameGroupAssemble();
         table=new StudentsTable();
     }
@@ -23,6 +25,7 @@ public class EntryNameGroupSearchDialog {
         dialog.setTitle("Search entries by name and group");
         JButton dialogSearch= new JButton("Search");
         dialogSearch.addActionListener(ev -> {
+            core.dialogController = new Controller(mainFrameController);
             ArrayList<String> name = new ArrayList<>();
             name.add(core.secondNameField.getText());
             name.add(core.firstNameField.getText());

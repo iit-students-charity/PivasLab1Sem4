@@ -10,11 +10,14 @@ import java.util.ArrayList;
 public class EntryNameWorkSearchDialog {
     private DialogComponentsFactory core;
     private StudentsTable table;
+    private Controller mainFrameController;
 
     public EntryNameWorkSearchDialog(Controller ownerController) {
         core = new DialogComponentsFactory(ownerController);
+        mainFrameController=ownerController;
         core.nameWorkAssemble();
         table = new StudentsTable();
+
     }
 
     public JDialog buildDialog() {
@@ -23,6 +26,7 @@ public class EntryNameWorkSearchDialog {
         dialog.setTitle("Search entries by name and work hours");
         JButton dialogSearch = new JButton("Search");
         dialogSearch.addActionListener(ev -> {
+            core.dialogController = new Controller(mainFrameController);
             ArrayList<String> name = new ArrayList<>();
             name.add(core.secondNameField.getText());
             name.add(core.firstNameField.getText());

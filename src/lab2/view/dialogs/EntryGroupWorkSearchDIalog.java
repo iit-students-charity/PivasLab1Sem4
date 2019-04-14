@@ -10,9 +10,11 @@ import java.util.ArrayList;
 public class EntryGroupWorkSearchDIalog {
     private  DialogComponentsFactory core;
     private StudentsTable studentsTable;
+    private Controller mainFrameController;
 
     public EntryGroupWorkSearchDIalog(Controller ownerController) {
         this.core = new DialogComponentsFactory(ownerController);
+        mainFrameController=ownerController;
         core.groupWorkAssemble();
         studentsTable = new StudentsTable();
     }
@@ -24,6 +26,7 @@ public class EntryGroupWorkSearchDIalog {
         JPanel rootDialogPanel = new JPanel(new BorderLayout());
         JButton dialogSearch = new JButton("Search");
         dialogSearch.addActionListener(ev -> {
+            core.dialogController = new Controller(mainFrameController);
             core.dialogController.searchGroupWork(core.group.getSelectedItem().toString(),
                     Integer.parseInt(core.workLowerField.getText()),
                     Integer.parseInt(core.workHigherField.getText()));

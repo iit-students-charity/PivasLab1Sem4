@@ -10,7 +10,6 @@ import java.util.Arrays;
 
 public class AddEntryDialog {
     private JFrame ownerFrame;
-    private StudentsTable ownerTable;
     private Controller ownerController;
     private JTextField firstNameField;
     private JTextField secondNameField;
@@ -93,7 +92,6 @@ public class AddEntryDialog {
                         Integer.parseInt(sem10.getText())
                 ));
                 ownerController.addEntry(name, group.getText(), work);
-                ownerTable.setTableData(ownerController.representData());
             } else{
                 JOptionPane.showMessageDialog(null, "You must fill all the fields");
             }
@@ -134,7 +132,6 @@ public class AddEntryDialog {
 
     public AddEntryDialog(JFrame owner, StudentsTable table, Controller controller) {
         setOwnerFrame(owner);
-        setOwnerTable(table);
         setOwnerController(controller);
     }
 
@@ -156,10 +153,6 @@ public class AddEntryDialog {
 
     public void setOwnerFrame(JFrame ownerFrame) {
         this.ownerFrame = ownerFrame;
-    }
-
-    public void setOwnerTable(StudentsTable ownerTable) {
-        this.ownerTable = ownerTable;
     }
 
     public void setOwnerController(Controller ownerController) {

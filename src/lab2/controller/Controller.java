@@ -9,6 +9,8 @@ import java.util.Vector;
 
 public class Controller {
     EntryModel modelToControl;
+    private final boolean DELETE_REQ=false;
+    private final boolean SEARCH_REQ=true;
 
     public void addEntry(ArrayList<String> name, String group, ArrayList<Integer> workData) {
         modelToControl.addStudent(name, group, workData);
@@ -63,20 +65,14 @@ public class Controller {
     }
 
     public int deleteNameGroup(List<String> name, String group) {
-        int deletedEntriesCount = this.modelToControl.getStudents().size();
-        this.modelToControl.setStudents(modelToControl.deleteByNameGroup(name, group));
-        return deletedEntriesCount - this.modelToControl.getStudents().size();
+        return  this.modelToControl.deleteByNameGroup(name, group);
     }
 
     public int deleteGroupWork(String group, int lower, int higher) {
-        int deletedEntriesCount = this.modelToControl.getStudents().size();
-        this.modelToControl.setStudents(modelToControl.deleteByGroupWork(group, lower, higher));
-        return deletedEntriesCount - this.modelToControl.getStudents().size();
+        return  this.modelToControl.deleteByGroupWork(group, lower, higher);
     }
 
     public int deleteNameWork(List<String> name, int lower, int higher) {
-        int deletedEntriesCount = this.modelToControl.getStudents().size();
-        this.modelToControl.setStudents(modelToControl.deleteByNameWork(name, lower, higher));
-        return deletedEntriesCount - this.modelToControl.getStudents().size();
+        return  this.modelToControl.deleteByNameWork(name, lower, higher);
     }
 }
